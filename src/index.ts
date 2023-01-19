@@ -1,5 +1,8 @@
-import { httpServer } from "./src/http_server/index.js";
+import { httpServer } from "./http_server/index.js";
+import { WebSocketServer } from "ws"; // websocket соединение
+//import dotenv from 'dotenv';
 import { mouse } from "@nut-tree/nut-js";
+
 
 const HTTP_PORT = 8181;
 
