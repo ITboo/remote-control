@@ -16,28 +16,25 @@ export const drawCircle = async (r: number) => {
     await mouse.releaseButton(Button.LEFT);
 };
 
-// Draw rectangle with pushed left button:<- draw_rectangle {px} {px}
-export const drawRectangle = async (args: string[]) => {
-    const width = parseInt(args[0]!, 10);
-    const height = parseInt(args[1]!, 10);
-
+// Draw square with pushed left button: <- draw_square {px}
+export const drawSquare = async (width: number): Promise<void> => {
     await mouse.pressButton(Button.LEFT);
     await mouse.drag(right(width));
-    await mouse.drag(down(height));
+    await mouse.drag(down(width));
     await mouse.drag(left(width));
-    await mouse.drag(up(height));
+    await mouse.drag(up(width));
     await mouse.releaseButton(Button.LEFT);
 };
 
-// Draw square with pushed left button: <- draw_square {px}
-export const drawSquare = async (args: string[]) => {
+// Draw rectangle with pushed left button:<- draw_rectangle {px} {px}
+export const drawRectangle = async (args: string[]) => {
     const width = parseInt(args[0]!, 10);
     const height = width;
 
-   // await mouse.pressButton(Button.LEFT);
+    // await mouse.pressButton(Button.LEFT);
     await mouse.drag(right(width));
     await mouse.drag(down(height));
     await mouse.drag(left(width));
     await mouse.drag(up(height));
-   // await mouse.releaseButton(Button.LEFT);
+    // await mouse.releaseButton(Button.LEFT);
 };

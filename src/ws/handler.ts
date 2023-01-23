@@ -54,16 +54,13 @@ function wsConnection(ws: WebSocket): void {
                 wsStream.write(`mouse_position ${x},${y}`);
                 break;
             };
-            /*
-
-            ОНО РИСУЕТ КАКУЮ-ТО ДИЧЬ, ЛУЧШЕ НЕ ВКЛЮЧАТЬ
-
+            
             case ('draw_square'): {
-                await drawSquare(args);
-                wsStream.write(`${command}_${x}_${y}_${a}_${b}`);
+                await drawSquare(a);
+                wsStream.write(`${command}_${x}_${y}_${a}}`);
                 break;
             };
-            case ('draw_rectangle'): {
+            /*case ('draw_rectangle'): {
                 await drawRectangle(w, h);
                 wsStream.write(`${command}_${x}_${y}_${w}_${h}`);
                 break;
