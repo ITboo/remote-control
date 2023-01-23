@@ -33,31 +33,36 @@ function wsConnection(ws: WebSocket): void {
             case ('mouse_up'): {
                 await moveUp(a)
                 wsStream.write(`mouse_up_${a}`);
+                console.log(`${command} ${a}`);
                 break;
             };
             case ('mouse_down'): {
                 await moveDown(a);
                 wsStream.write(`mouse_down_${a}`);
+                console.log(`${command} ${a}`);
                 break;
             };
             case ('mouse_left'): {
                 await moveLeft(a);
                 wsStream.write(`mouse_left_${a}`);
+                console.log(`${command} ${a}`);
                 break;
             };
             case ('mouse_right'): {
                 await moveRight(a);
                 wsStream.write(`mouse_right_${a}`);
+                console.log(`${command} ${a}`);
                 break;
             };
             case ('mouse_position'): {
                 wsStream.write(`mouse_position ${x},${y}`);
+                console.log(`mouse_position ${x},${y}`);
                 break;
             };
-            
             case ('draw_square'): {
                 await drawSquare(a);
                 wsStream.write(`${command}_${x}_${y}_${a}}`);
+                console.log(`${command} ${a}`);
                 break;
             };
             /*case ('draw_rectangle'): {
