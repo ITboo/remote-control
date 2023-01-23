@@ -17,21 +17,27 @@ export const drawCircle = async (r: number) => {
 };
 
 // Draw rectangle with pushed left button:<- draw_rectangle {px} {px}
-export const drawRectangle = async (w: number, h: number) => {
+export const drawRectangle = async (args: string[]) => {
+    const width = parseInt(args[0]!, 10);
+    const height = parseInt(args[1]!, 10);
+
     await mouse.pressButton(Button.LEFT);
-    await mouse.drag(right(w));
-    await mouse.drag(down(h));
-    await mouse.drag(left(w));
-    await mouse.drag(up(h));
+    await mouse.drag(right(width));
+    await mouse.drag(down(height));
+    await mouse.drag(left(width));
+    await mouse.drag(up(height));
     await mouse.releaseButton(Button.LEFT);
 };
 
 // Draw square with pushed left button: <- draw_square {px}
-export const drawSquare = async (w: number, h = w) => {
-    await mouse.pressButton(Button.LEFT);
-    await mouse.drag(right(w));
-    await mouse.drag(down(h));
-    await mouse.drag(left(w));
-    await mouse.drag(up(h));
-    await mouse.releaseButton(Button.LEFT);
+export const drawSquare = async (args: string[]) => {
+    const width = parseInt(args[0]!, 10);
+    const height = width;
+
+   // await mouse.pressButton(Button.LEFT);
+    await mouse.drag(right(width));
+    await mouse.drag(down(height));
+    await mouse.drag(left(width));
+    await mouse.drag(up(height));
+   // await mouse.releaseButton(Button.LEFT);
 };
