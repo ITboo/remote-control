@@ -1,18 +1,24 @@
 import { mouse, left, right, up, down, Point, straightTo, Button } from "@nut-tree/nut-js";
 //import Jimp from 'jimp';
 
-export const draw = async (x: number, y: number) => {
+export const moveLeft = async (x: number) => {
     await mouse.move(left(x)); // Move mouse left <- mouse_left {x px}
+}
+export const moveUp = async (y: number) => {
     await mouse.move(up(y)); // Move mouse up <- mouse_up {y px}
+}
+export const moveRight = async (x: number) => {
     await mouse.move(right(x));// Move mouse right <- mouse_right {x px}
+}
+export const moveDown = async (y: number) => {
     await mouse.move(down(y)) // Move mouse down<- mouse_down {y px}
 };
 
 //Send mouse coordinates <- mouse_position -> mouse_position {x px},{y px}
-(async () => {
+export const position = async (x:number, y:number) => {
     const target = new Point(x, y);
     await mouse.move(straightTo(target));
-})();
+};
 
 
 // Draw circle with pushed left button:<- draw_circle {px}

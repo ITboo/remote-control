@@ -1,0 +1,1 @@
+export const COMMAND_ERROR = console.log(`Command is not found`);
