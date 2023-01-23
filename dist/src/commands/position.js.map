@@ -1,1 +1,0 @@
-{"version":3,"file":"position.js","sourceRoot":"","sources":["../../../src/commands/position.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAA4D;AAE5D,0EAA0E;AACnE,MAAM,QAAQ,GAAG,CAAO,CAAS,EAAE,CAAS,EAAE,EAAE;IACnD,MAAM,MAAM,GAAG,IAAI,cAAK,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IAC/B,MAAM,cAAK,CAAC,IAAI,CAAC,IAAA,mBAAU,EAAC,MAAM,CAAC,CAAC,CAAC;AACzC,CAAC,CAAA,CAAC;AAHW,QAAA,QAAQ,YAGnB"}
