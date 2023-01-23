@@ -1,1 +1,3 @@
-export const COMMAND_ERROR = console.log(`Command is not found`);
+export const COMMAND_ERROR = async()=>{
+    console.log(`Command is not found`);
+};
