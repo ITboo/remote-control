@@ -23,35 +23,36 @@ function wsConnection(ws: WebSocket): void {
     wsStream.on("data", async (data) => {
 
         const [command, ...args] = data.toString().split(' ');
+        const [a, b] = args.map((arg:any) => parseInt(arg));
         const { x, y } = await mouse.getPosition();
 
         let wsResponse = command;
 
         switch (command) {
             case ('mouse_up'): {
-                await moveUp(y)
-                wsStream.write(`mouse_up_${y}`);
+                await moveUp(a)
+                wsStream.write(`mouse_up_${a}`);
                 break;
             };
             case ('mouse_down'): {
-                await moveDown(y);
-                wsStream.write(`mouse_down_${y}`);
+                await moveDown(a);
+                wsStream.write(`mouse_down_${a}`);
                 break;
             };
             case ('mouse_left'): {
-                await moveLeft(x);
-                wsStream.write(`mouse_left_${x}`);
+                await moveLeft(a);
+                wsStream.write(`mouse_left_${a}`);
                 break;
             };
             case ('mouse_right'): {
-                await moveRight(x);
-                wsStream.write(`mouse_right_${x}`);
+                await moveRight(a);
+                wsStream.write(`mouse_right_${a}`);
                 break;
             };
-            /*case ('mouse_position'): {
-                await position(x, y)
+            case ('mouse_position'): {
+                wsStream.write(`mouse_position ${x},${y}`);
                 break;
-            };*/
+            };
             /*case ('draw_square'): {
                 await drawSquare(w, h);
                 wsStream.write(`${command}_${x}_${y}_${w}_${h}`);
