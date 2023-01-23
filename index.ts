@@ -16,5 +16,6 @@ wss.on('connection', wsConnection);
 process.on("SIGNINT", () => {
     console.log("Websocket server is closed");
     wss.close();
+    httpServer.close();
     process.exit(0);
 });

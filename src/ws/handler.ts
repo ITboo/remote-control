@@ -24,7 +24,7 @@ function wsConnection(ws: WebSocket): void {
     wsStream.on("data", async (data) => {
 
         const [command, ...args] = data.toString().split(' ');
-        const [a,b] = args.map((arg:any) => parseInt(arg));
+        const [a, b] = args.map((arg: any) => parseInt(arg));
         const { x, y } = await mouse.getPosition();
 
         let wsResponse = command;
@@ -55,7 +55,7 @@ function wsConnection(ws: WebSocket): void {
                 break;
             };
             /*
-            
+
             ОНО РИСУЕТ КАКУЮ-ТО ДИЧЬ, ЛУЧШЕ НЕ ВКЛЮЧАТЬ
 
             case ('draw_square'): {
@@ -74,7 +74,9 @@ function wsConnection(ws: WebSocket): void {
                 break;
             };*/
             case ('prnt_scrn'): {
-                await getScreenShot();
+                const wsBuf = await getScreenShot();
+                console.log(`print_scrn ${x}, ${y}, ${200}`);
+                wsStream.write(`prnt_scrn ${wsBuf}\0`);
                 break;
             };
             default: {
